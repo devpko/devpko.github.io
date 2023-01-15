@@ -25,13 +25,13 @@ title:                 Tech Blog
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  This is devrovi's blog. Supports robot and vision tech-knowledge.
+  This is devpko's blog. Supports robot and vision tech-knowledge.
 
 # A shorter description for the sidebar.
 tagline:               \#computer vision, \#robot, \#automation
 
 # A list of keywords for your blog
-keywords:              [devrovi, computer vision, robot, ai, image processing, automation]
+keywords:              [devpko, computer vision, robot, ai, image processing, automation]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
@@ -64,7 +64,7 @@ legal:
     url:               /NOTICE/
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2023. devrovi.
+copyright:             © 2023. devpko.
 
 # Format of the permalinks
 permalink:             /:categories/:year-:month-:day-:title/

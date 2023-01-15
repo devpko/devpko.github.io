@@ -1,4 +1,4 @@
-# devrovi's blog
+# devpko's blog
 
 This blog is designed to study computer vision-related fields. I would like to inform and share what I have learned, experienced, and what I will study in the future through this blog. So I hope that my knowledge and experience can be useful to those who need it.
 

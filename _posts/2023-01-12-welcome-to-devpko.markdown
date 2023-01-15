@@ -1,21 +1,21 @@
 ---
 layout: post
-title:  "Welcome to devrovi's blog!"
+title:  "Welcome to devpko's blog!"
 date:   2023-01-12 14:37:11 +0900
 ---
 This blog is designed to study computer vision-related fields. I would like to inform and share what I have learned, experienced, and what I will study in the future through this blog. So I hope that my knowledge and experience can be useful to those who need it.
 
 ~~~python
 def main():
-    print("Welcome to devrovi's blog")
+    print("Welcome to devpko's blog")
 
 if __name__ == '__main__':
     main()
 ~~~
 
-Check out the [devrovi's github][devrovi-github] for more information.
+Check out the [devpko's github][devpko-github] for more information.
 
-[devrovi-github]:   https://github.com/devrovi/
+[devpko-github]:   https://github.com/devpko/
 
 <!--
 Jekyll requires blog post files to be named according to the following format:
