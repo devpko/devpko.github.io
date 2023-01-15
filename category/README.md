@@ -10,7 +10,7 @@ permalink: /category/
 
 Here, categorized postings will be posted. 
 Should you think something is missing, [please let me know](mailto:pjaesung2@gmail.com).
-Should you discover a mistake in the docs (or a bug in general) feel free to [open an issue](https://github.com/devrovi) on GitHub.
+Should you discover a mistake in the docs (or a bug in general) feel free to [open an issue](https://github.com/devpko) on GitHub.
 
 image processing, computer vision
 {:.note}
