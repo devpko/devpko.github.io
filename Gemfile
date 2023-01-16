@@ -46,8 +46,8 @@ group :jekyll_plugins do
   gem "jekyll-include-cache"
 
   # Non-Github Pages plugins:
-#   gem "jekyll-last-modified-at"
-#   gem "jekyll-compose"
+  gem "jekyll-last-modified-at"
+  gem "jekyll-compose"
 end
 
 gem 'wdm' if Gem.win_platform?
