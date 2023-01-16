@@ -5,6 +5,7 @@ description: >
   다양한 색 공간에 대한 이해 및 활용 방법.
 sitemap: false
 hide_last_modified: true
+comments: true
 ---
 
 # Color Science
