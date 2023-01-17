@@ -8,6 +8,7 @@ hide_last_modified: true
 comments: true
 ---
 
+
 # Color Science
 
 ## 다양한 색 공간에 대한 이해의 필요성
@@ -38,8 +39,9 @@ display마다 서로 다른 크기와 형태의 색역 때문에 컬러의 불�
 
 ## Color History
 ![difference_red](/assets/img/image-processing/color-science/difference_red.png)
+
 1850년, 빛의 삼원색이 정의된 이후, 빛, 조명, 물체, 그리고 보는 사람에 따라 발생하는 불일치를 해소하기 위해 표준으로 삼을 수 있는 기준이 필요하게 되었으며, 
-1931년 국제조명위원회 CIE (Commission internationale de l'éclairage)가 그 기준을 발표하게 되었다. 
+1931년 국제조명위원회 CIE (Commission internationale de l'éclairage)가 그 기준을 발표하게 되었다.
 
 
 
