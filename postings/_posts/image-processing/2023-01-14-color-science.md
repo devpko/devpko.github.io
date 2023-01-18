@@ -23,9 +23,10 @@ comments: true
 이번 포스팅에서는 color space, color system, 그리고 아마 여태까지는 익숙치 않았던 Lab 색 공간에 대해 이해하고, 이를 활용하는 방법에 대해 설명하고자 한다.
 
 
-## 같은 빨간색이지만 사람의 눈에는 다르게 보이는 이유
+## 같은 빨간색이지만 사람마다 다르게 보이는 이유
 분명히 같은 영상인데 A Display에서 보이는 색상과 B Display에서 보이는 색상이 다른 것 같은 경험, 아마 한번쯤은 겪어봤을 것이다.
-같은 영상이라면 rgb 코드가 모두 같은 것인데, 왜 이러한 차이가 발생하는 것처럼 느껴지는 것일까?
+누군가에게는 빨간색, 누군가에게는 짙은 빨간색, 누군가에게는 짙은 핑크색 등 rgb 코드가 모두 동일한 색상임에도 불구하고,
+사람마다 인지하는 색상의 차이가 발생하는 이유는 무엇일까?
 
 A Display에서의 (255, 0, 0), B Display에서의 (255, 0, 0), 그리고 C Display에서의 (255, 0, 0)는 같은 '빨간색 디지털 코드'이지만,
 측색기로 측정한 실제 값은 아래와 같이 조금씩 다른 색일 수가 있다.
@@ -38,11 +39,28 @@ display마다 서로 다른 크기와 형태의 색역 때문에 컬러의 불�
 
 
 ## Color History
-![difference_red](/assets/img/image-processing/color-science/difference_red.png)
+![color_history](/assets/img/image-processing/color-science/color_history.png)
+
+연도는 부정확 할 수도 있습니다 :)
+{:.note}
 
 1850년, 빛의 삼원색이 정의된 이후, 빛, 조명, 물체, 그리고 보는 사람에 따라 발생하는 불일치를 해소하기 위해 표준으로 삼을 수 있는 기준이 필요하게 되었으며, 
-1931년 국제조명위원회 CIE (Commission internationale de l'éclairage)가 그 기준을 발표하게 되었다.
+국제조명위원회 CIE (Commission internationale de l'éclairage)가 그 기준을 발표하게 되었다.
+1920년대, W. 데이빗 라이트와 존 길드가 인간의 시력에 관한 일련의 실험을 독립적으로 수행했으며, 
+이를 바탕으로 CIERGB 색 공간이 만들어졌고, 이에 기반하여 다시 CIEXYZ 색 공간이 만들어졌다.
 
+먼저, CIERGB 색상 공간은 특정 단색 (단일 파장) 원색 세트로 구별되는 많은 RGB 색상 공간 중 하나이다.
+W.G.Wright과 J.Guild의 등색 실험을 통해 정의가 되었는데, 
+우리 눈은 장파장(빨간색에 가까운 빛), 중파장(초록색에 가까운 빛), 단파장(파란색에 가까운 빛)을 각각 감지하는 세 종류의 원추세포가 존재하기 때문에 
+"모든 색은 3원색의 조합으로 만들어 낼 수 있다." 라는 가설을 바탕으로 380nm ~ 780nm까지의 단색광을 만들어내는 실험을 말한다.
+
+![CIERGB](/assets/img/image-processing/color-science/CIERGB.png)
+
+위 그림은 등색 실험의 결과를 그래프화한 것이고, 이를 통해 아래와 같은 수식을 도출해 낼 수 있다.
+
+(수식)
+
+위 수식은 XYZ
 
 
 ## Color Space, Color System
