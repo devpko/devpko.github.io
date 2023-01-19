@@ -34,11 +34,11 @@ A Display에서의 (255, 0, 0), B Display에서의 (255, 0, 0), 그리고 C Disp
 ![difference_red](/assets/img/image-processing/color-science/difference_red.png)
 
 이러한 차이가 생기는 이유는 바로 각 디스플레이마다 표현하고자 하는 색역(color gamut)이 다르기 때문이다.
-색역(color gamut)이란 display가 표현할 수 있는 모든 색들의 범위를 의미하는데, 
+색역이란 display가 표현할 수 있는 모든 색들의 범위를 의미하는데, 
 display마다 서로 다른 크기와 형태의 색역 때문에 컬러의 불일치가 발생하게 되는 것이다.
 
 
-## Color History
+## Color History (feat. CIERGB, CIEXYZ, CIELab)
 ![color_history](/assets/img/image-processing/color-science/color_history.png)
 
 연도는 부정확 할 수도 있습니다 :)
@@ -56,11 +56,22 @@ W.G.Wright과 J.Guild의 등색 실험을 통해 정의가 되었는데,
 
 ![CIERGB](/assets/img/image-processing/color-science/CIERGB.png)
 
-위 그림은 등색 실험의 결과를 그래프화한 것이고, 이를 통해 아래와 같은 수식을 도출해 낼 수 있다.
+위 그림은 등색 실험의 결과를 그래프화한 것이고, 이를 통해 아래와 같은 수식을 도출해 낼 수 있는데, 일단은 참고만 해두자.
 
-(수식)
+$$
+\begin{aligned} %!!15
+  R = \int_0^\infty \mathrm{I}(\lambda)\bar{r}(\lambda) \mathrm{d}x  \quad \quad \quad \quad \quad \quad  r = { R \over R + G + B } \\[2em]
+  G = \int_0^\infty \mathrm{I}(\lambda)\bar{g}(\lambda) \mathrm{d}x  \quad \quad => \quad \quad g = { G \over R + G + B } \\[2em]
+  B = \int_0^\infty \mathrm{I}(\lambda)\bar{b}(\lambda) \mathrm{d}x  \quad \quad \quad \quad \quad \quad b = { B \over R + G + B }
+\end{aligned}
+$$
 
-위 수식은 XYZ
+{:.figcaption}
+
+CIERGB 색상 공간에는 한 가지 문제점이 있는데, 위 그래프를 자세히 보면 하늘색으로 색칠된 음의 영역이 색 재현이 안된다는 것이다.
+CIERGB의 이러한 문제점을 수학적으로 보완하여 나온 것이 CIEXYZ 색상 공간(CIE 1931 색 공간)이다.
+
+![CIEXYZ](/assets/img/image-processing/color-science/CIEXYZ.png)
 
 
 ## Color Space, Color System
