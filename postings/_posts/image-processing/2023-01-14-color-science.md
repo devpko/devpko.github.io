@@ -59,11 +59,11 @@ W.G.Wright과 J.Guild의 등색 실험을 통해 정의가 되었는데,
 위 그림은 등색 실험의 결과를 그래프화한 것이고, 이를 통해 아래와 같은 수식을 도출해 낼 수 있는데, 일단은 참고만 해두자.
 
 $$
-\begin{aligned} %!!15
-  R = \int_0^\infty \mathrm{I}(\lambda)\bar{r}(\lambda) \mathrm{d}x  \quad \quad \quad \quad \quad \quad  r = { R \over R + G + B } \\[2em]
-  G = \int_0^\infty \mathrm{I}(\lambda)\bar{g}(\lambda) \mathrm{d}x  \quad \quad => \quad \quad g = { G \over R + G + B } \\[2em]
-  B = \int_0^\infty \mathrm{I}(\lambda)\bar{b}(\lambda) \mathrm{d}x  \quad \quad \quad \quad \quad \quad b = { B \over R + G + B }
-\end{aligned}
+\begin{align}
+  R &= \int_0^\infty \mathrm{I}(\lambda)\bar{r}(\lambda) \mathrm{d}x  \quad \quad \quad \quad \quad \quad  r = { R \over R + G + B } \\[2em]
+  G &= \int_0^\infty \mathrm{I}(\lambda)\bar{g}(\lambda) \mathrm{d}x  \quad \quad => \quad \quad g = { G \over R + G + B } \\[2em]
+  B &= \int_0^\infty \mathrm{I}(\lambda)\bar{b}(\lambda) \mathrm{d}x  \quad \quad \quad \quad \quad \quad b = { B \over R + G + B } 
+\end{align}
 $$
 
 CIERGB 색상 공간에는 한 가지 문제점이 있는데, 위 그래프를 자세히 보면 하늘색으로 색칠된 음의 영역이 색 재현이 안된다는 것이다.
