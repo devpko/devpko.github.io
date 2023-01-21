@@ -28,13 +28,14 @@ comments: true
 누군가에게는 빨간색, 누군가에게는 짙은 빨간색, 누군가에게는 짙은 핑크색 등 rgb 코드가 모두 동일한 색상임에도 불구하고,
 사람마다 인지하는 색상의 차이가 발생하는 이유는 무엇일까?
 
-A Display에서의 (255, 0, 0), B Display에서의 (255, 0, 0), 그리고 C Display에서의 (255, 0, 0)는 같은 '빨간색 디지털 코드'이지만,
-측색기로 측정한 실제 값은 아래와 같이 조금씩 다른 색일 수가 있다.
-
 ![difference_red](/assets/img/image-processing/color-science/difference_red.png)
 
+A Display에서의 (255, 0, 0)와 B Display에서의 (255, 0, 0)는 같은 '빨간색 디지털 코드'이지만, 측색기로 측정한 실제 값은 조금씩 다른 색일 수가 있다. 
 이러한 차이가 생기는 이유는 바로 각 디스플레이마다 표현하고자 하는 색역(color gamut)이 다르기 때문이다.
-색역이란 display가 표현할 수 있는 모든 색들의 범위를 의미하는데, 
+
+위 chromatic diagram 그림을 보면 A Display의 삼각형 영역과 B Display의 삼각형 영역이 다른 것을 볼 수 있는데,
+각 삼각형의 빨간 부분의 꼭지점 위치가 Display 에서 표현하고자 하는 (255, 0, 0) 지점이다.
+이 삼각형 영역이 색역이며, display가 표현할 수 있는 모든 색들의 범위를 의미하는데, 
 display마다 서로 다른 크기와 형태의 색역 때문에 컬러의 불일치가 발생하게 되는 것이다.
 
 
@@ -60,16 +61,62 @@ W.G.Wright과 J.Guild의 등색 실험을 통해 정의가 되었는데,
 
 $$
 \begin{align}
-  R &= \int_0^\infty \mathrm{I}(\lambda)\bar{r}(\lambda) \mathrm{d}x  \quad \quad \quad \quad \quad \quad  r = { R \over R + G + B } \\[2em]
-  G &= \int_0^\infty \mathrm{I}(\lambda)\bar{g}(\lambda) \mathrm{d}x  \quad \quad => \quad \quad g = { G \over R + G + B } \\[2em]
-  B &= \int_0^\infty \mathrm{I}(\lambda)\bar{b}(\lambda) \mathrm{d}x  \quad \quad \quad \quad \quad \quad b = { B \over R + G + B } 
+  R &= \int_0^\infty \mathrm{I}(\lambda)\bar{r}(\lambda) \mathrm{d}\lambda  \quad \quad \quad \quad \quad \quad  r = { R \over R + G + B } \\[2em]
+  G &= \int_0^\infty \mathrm{I}(\lambda)\bar{g}(\lambda) \mathrm{d}\lambda  \quad \quad => \quad \quad g = { G \over R + G + B } \\[2em]
+  B &= \int_0^\infty \mathrm{I}(\lambda)\bar{b}(\lambda) \mathrm{d}\lambda  \quad \quad \quad \quad \quad \quad b = { B \over R + G + B }
 \end{align}
 $$
 
-CIERGB 색상 공간에는 한 가지 문제점이 있는데, 위 그래프를 자세히 보면 하늘색으로 색칠된 음의 영역이 색 재현이 안된다는 것이다.
-CIERGB의 이러한 문제점을 수학적으로 보완하여 나온 것이 CIEXYZ 색상 공간(CIE 1931 색 공간)이다.
+I(λ) : 파장에 따른 광원값, 표준은 P_D65이며 [opencv](https://docs.opencv.org/4.6.0/de/d25/imgproc_color_conversions.html)에서도 해당 표준을 사용
+{:.figcaption}
+
+CIERGB 색상 공간에는 한 가지 문제점이 있는데, 위 그래프를 자세히 보면 하늘색으로 색칠된 음의 영역은
+사람의 눈으로 볼 수도 없고 색 재현이 안된다는 것이다.
+CIERGB의 이러한 문제점을 수학적으로 보완하여 나온 것이 바로 1931년에 정립된 CIEXYZ 색상 공간(CIE 1931 색 공간)이다.
 
 ![CIEXYZ](/assets/img/image-processing/color-science/CIEXYZ.png)
+
+CIEXYZ 색 공간은 CIERGB 색 공간으로부터 선형변환을 통해 얻을 수 있으며, 모든 값이 양수를 갖는다.
+모든 색이 chromatic diagram에서 (1, 0), (0, 1), (0, 0)의 삼각형 내에 존재해야 인간이 볼 수 있는 색으로 표현이 가능했다.
+그래서 CIERGB chromatic diagram의 음의 영역을 양의 영역으로 변환하기 위해 Cr, Cg, Cb 를 잇는 삼각형의 
+각 꼭지점들을 xy = (1, 0), (0, 1), (0, 0)에 대응해 변환한 것이 CIEXYZ chromatic diagram이다.
+이 그래프를 수학적으로 표현한 것이 아래 수식이다.
+
+$$
+\begin{align}
+  \begin{bmatrix} X\\Y\\Z \end{bmatrix} &= { 1 \over 0.17697 } \begin{bmatrix} 0.49&0.31&0.20\\0.17697&0.81240&0.01063\\0.00&0.01&0.99 \end{bmatrix} \begin{bmatrix} R\\G\\B \end{bmatrix}
+\end{align}
+$$
+
+위 수식과 CIERGB에서 구한 수식을 활용하면 아래와 같은 function을 도출해 낼 수 있다.
+
+$$
+\begin{align}
+  \bar{x}(\lambda) &= 2.7689 \bar{r}(\lambda) + 1.7517 \bar{g}(\lambda) + 1.1302 \bar{b}(\lambda) \\[2em]
+  \bar{y}(\lambda) &= 1.0000 \bar{r}(\lambda) + 4.5907 \bar{g}(\lambda) + 0.0601 \bar{b}(\lambda) \\[2em]
+  \bar{z}(\lambda) &= 0.0000 \bar{r}(\lambda) + 0.0565 \bar{g}(\lambda) + 5.5943 \bar{b}(\lambda) \\[2em]
+
+  X &= \int_0^\infty \mathrm{I}(\lambda)\bar{x}(\lambda) \mathrm{d}\lambda  \qquad \qquad \qquad  x = { X \over X + Y + Z } \\[2em]
+  Y &= \int_0^\infty \mathrm{I}(\lambda)\bar{y}(\lambda) \mathrm{d}\lambda  \qquad => \qquad y = { Y \over X + Y + Z } \\[2em]
+  Z &= \int_0^\infty \mathrm{I}(\lambda)\bar{z}(\lambda) \mathrm{d}\lambda  \qquad \qquad \qquad z = { Z \over X + Y + Z } = 1 - x - y
+\end{align}
+$$
+
+하지만 이러한 보완에도 불구하고 색상과 채도를 색차 같은 공학 계산에 활용이 어렵다는 단점이 있다.
+CIEXYZ에서는 색상을 나타내는 선이 직선이 아닌 굽은 선이며, 색상각도 균등하지가 않다. 
+그리고 채도를 나타내는 원들은 둥근 동심원들이어야 되는데 그렇지 않으며, 사이 간격도 일정치 않다.
+
+이러한 이유 때문에 공학 계산에 활용이 어려운 CIEXYZ를 보완한 것이 1976년에 발표한 CIELab이다.
+
+![CIELAB](/assets/img/image-processing/color-science/CIELAB.png)
+
+L : 휘도, black-white 요소, 0(black) ~ 100(white) 값을 가짐  
+a : green-red 요소, -128(green) ~ +128(red) 의 값을 가짐  
+b : blue-yellow 요소, -128(blue) ~ +128(yellow) 의 값을 가짐
+{:.note}
+
+CIELAB는 균일한(uniform) 색공간 좌표로서 눈으로 보는 것과 매우 근소한 차이를 보여주기 때문에 현재 세계적으로 표준화되어 있는 색공간다.
+
 
 
 ## Color Space, Color System
@@ -93,6 +140,10 @@ Lab color space에 대해 이해가 어느 정도 됐을거라 생각한다.
 위 watermelon 이미지로부터 빨간 영역만 추출하는 task를 두 가지 방법으로 해보려한다.
 1. bgr 이미지로부터 r > 128 이상 이상인 부분을 masking 처리
 2. lab 이미지로 변환하여 a > 128 이상인 부분을 masking 처리
+
+실제로는 L : black-white 요소 0 ~ 100, a : green-red 요소 - ~ +, blue-yellow 요소 - ~ + 의 값을 가지지만,
+[opencv](https://docs.opencv.org/4.6.0/de/d25/imgproc_color_conversions.html)에서는 L ← L∗255/100, a ← a+128, b ← b+128 하여 각 값들을 0 ~ 255로 바꿔 사용한다.
+{:.note}
 
 ~~~python
 import cv2
