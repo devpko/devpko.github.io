@@ -119,6 +119,7 @@ CIELAB는 균일한(uniform) 색공간 좌표로서 눈으로 보는 것과 매�
 
 
 
+
 ## Color Space, Color System
 Wiki에 정의된 color space 및 color system.
 > 색 공간(color space)은 색 표시계(color system)를 3차원으로 표현한 공간 개념이다. 
