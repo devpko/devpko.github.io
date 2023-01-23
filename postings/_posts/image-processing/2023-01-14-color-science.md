@@ -123,9 +123,8 @@ CIE Lab는 CIE XYZ에서 도출해낸 수식을 아래와 같이 변형한 형�
 $$
 \begin{align}
   L^* &= 116 f(Y/Y_n) - 16 \\[2em]
-  a^* &= 500 [f(X/X_n) - f(Y/Y_n)]  \qquad \qquad f(t) = \begin{cases} t^{1/3} & \text{if } y = 1 \\ % & is your "\tab"-like command (it's a tab alignment character)
-                                                                       \frac{1}{3} \left( \frac{29}{6} \right)^2 t + \frac{4}{29} & \text{otherwise.} \end{cases}
-  \\[2em]
+  a^* &= 500 [f(X/X_n) - f(Y/Y_n)]  \qquad & f(t) = \begin{cases} t^{1/3} & \text{if } y = 1 \\
+                                                                         \frac{1}{3} \left( \frac{29}{6} \right)^2 t + \frac{4}{29} & \text{otherwise.} \end{cases} \\[2em]
   b^* &= 200 [f(Y/Y_n) - f(Z/Z_n)] \\[2em]
       & \Tiny X_n, Y_n \text{ 및 } Z_n \text{은 CIE XYZ를 표준 흰색에 대해 정규화한 값}
 \end{align}
