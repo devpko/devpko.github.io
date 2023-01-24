@@ -16,15 +16,10 @@ image processing, computer vision
 {:.note}
 
 
-## Image Processing
-* [Color Science]{:.heading.flip-title} --- 다양한 색 공간에 대한 이해 및 활용 방법.
-{:.related-posts.faded}
-
 ## Computer Vision
+* [\[Image Processing\] Camera에서 이미지 읽기](../postings/_posts/computer-vision/2023-01-24-camera-apis.md){:.heading.flip-title} --- 다양한 종류의 카메라 API 통합 interface 구현
+* [\[Color Science\] Color의 이해 및 CIE Lab 활용 방법 (with python, opencv)](../postings/_posts/computer-vision/2023-01-14-color-science.md){:.heading.flip-title} --- 다양한 색 공간에 대한 이해 및 활용 방법
 {:.related-posts.faded}
 
-<!-- image processing postings -->
-[Color Science]: ../postings/_posts/image-processing/2023-01-14-color-science.md
-
-<!-- computer vision postings -->
-
+## Others
+{:.related-posts.faded}

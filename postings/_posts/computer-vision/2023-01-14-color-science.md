@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Color Science
+title: "[Color Science] Color의 이해 및 CIE Lab 활용 방법 (with python, opencv)"
 description: >
-  다양한 색 공간에 대한 이해 및 활용 방법.
+  다양한 색 공간에 대한 이해 및 활용 방법
 sitemap: false
 hide_last_modified: true
 comments: true
 ---
 
 
-# Color Science
+# [Color Science] Color의 이해 및 CIE Lab 활용 방법 (with python, opencv)
 
 ## 다양한 색 공간에 대한 이해의 필요성
 영상인식 알고리즘을 개발하는 사람이라면 RGB, Gray, HSV, YCbCr 색상 모델에 대해서는 많이 들어보고 사용해봤을 것이다.
@@ -28,7 +28,7 @@ comments: true
 누군가에게는 빨간색, 누군가에게는 짙은 빨간색, 누군가에게는 짙은 핑크색 등 rgb 코드가 모두 동일한 색상임에도 불구하고,
 사람마다 인지하는 색상의 차이가 발생하는 이유는 무엇일까?
 
-![difference_red](/assets/img/image-processing/color-science/difference_red.png)
+![difference_red](/assets/img/computer-vision/color-science/difference_red.png)
 
 A Display에서의 (255, 0, 0)와 B Display에서의 (255, 0, 0)는 같은 '빨간색 디지털 코드'이지만, 측색기로 측정한 실제 값은 조금씩 다른 색일 수가 있다. 
 이러한 차이가 생기는 이유는 바로 각 디스플레이마다 표현하고자 하는 색역(color gamut)이 다르기 때문이다.
@@ -46,7 +46,7 @@ display마다 서로 다른 pixel 크기와 형태 때문에 컬러의 불일치
 
 Color space 와 Color system이 무엇인지 이해하기에 앞서 잠시 색의 역사와 함께 CIE RGB, CIE, XYZ, CIE Lab가 무엇인지부터 알고가보자.
 
-![color_history](/assets/img/image-processing/color-science/color_history.png)
+![color_history](/assets/img/computer-vision/color-science/color_history.png)
 
 1850년, 빛의 삼원색이 정의된 이후, 빛, 조명, 물체, 그리고 보는 사람에 따라 발생하는 불일치를 해소하기 위해 표준으로 삼을 수 있는 기준이 필요하게 되었으며, 
 국제조명위원회 CIE (Commission internationale de l'éclairage)가 그 기준을 발표하게 되었다.
@@ -59,7 +59,7 @@ CIE RGB 색상 공간은 특정 단색 (단일 파장) 원색 세트로 구별�
 등색 실험이란, 우리 눈은 장파장(빨간색에 가까운 빛), 중파장(초록색에 가까운 빛), 단파장(파란색에 가까운 빛)을 각각 감지하는 세 종류의 원추세포가 존재하기에 
 "모든 색은 3원색의 조합으로 만들어 낼 수 있다." 라는 가설을 바탕으로 380nm ~ 780nm까지의 단색광을 만들어내는 실험을 말한다.
 
-![CIE RGB](/assets/img/image-processing/color-science/CIERGB.png)
+![CIE RGB](/assets/img/computer-vision/color-science/CIERGB.png)
 
 위 그림은 등색 실험의 결과를 그래프화한 것이고, 이를 통해 아래와 같은 수식을 도출해 낼 수 있는데, 일단은 참고만 해두자.
 
@@ -79,7 +79,7 @@ CIE RGB 색상 공간에는 한 가지 문제점이 있는데, 위 이미지를 
 CIE RGB의 이러한 문제점을 수학적으로 보완하여 나온 것이 바로 1931년에 정립된 CIE XYZ 색상 공간(CIE 1931 색 공간)이다.
 
 ### CIE XYZ
-![CIE XYZ](/assets/img/image-processing/color-science/CIEXYZ.png)
+![CIE XYZ](/assets/img/computer-vision/color-science/CIEXYZ.png)
 
 CIE XYZ 색 공간은 CIE RGB 색 공간으로부터 선형변환을 통해 얻을 수 있으며, 모든 값이 양수를 갖는다.
 모든 색이 chromatic diagram에서 (1, 0), (0, 1), (0, 0)의 삼각형 내에 존재해야 인간이 볼 수 있는 색으로 표현이 가능했다.
@@ -110,7 +110,7 @@ CIE XYZ에서는 색상을 나타내는 선이 직선이 아닌 굽은 선이며
 이러한 이유 때문에 공학 계산에 활용이 어려운 CIE XYZ를 보완한 것이 1976년에 발표한 CIE Lab이다.
 
 ### CIE Lab
-![CIELab](/assets/img/image-processing/color-science/CIELAB.png)
+![CIELab](/assets/img/computer-vision/color-science/CIELAB.png)
 
 L : 휘도, black-white 요소, 0(black) ~ 100(white) 값을 가짐  
 a : green-red 요소, -128(green) ~ +128(red) 의 값을 가짐  
@@ -165,7 +165,7 @@ CIE RGB, CIE XYZ, CIE Lab를 이해하는데 도움이 될 것이라 생각한�
 Lab color space에 대해 이해가 어느 정도 됐을거라 생각한다.
 그럼 아래의 예시를 통해 어떤 색상 모델을 사용하냐에 따라 결과물이 어떻게 다르게 나오는지 한번 비교해자.
  
-![watermelon](/assets/img/image-processing/color-science/watermelon.png)
+![watermelon](/assets/img/computer-vision/color-science/watermelon.png)
 
 위 watermelon 이미지로부터 빨간 영역만 추출하는 task를 두 가지 방법으로 해보려한다.
 1. bgr 이미지로부터 r > 128 이상 이상인 부분을 masking 처리
@@ -200,7 +200,7 @@ cv2.imshow('concat', concat)
 cv2.waitKey()
 ~~~
 
-![watermelon_concat](/assets/img/image-processing/color-science/watermelon_concat.png)
+![watermelon_concat](/assets/img/computer-vision/color-science/watermelon_concat.png)
 
 왼쪽에 있는 이미지는 RGB에서 r > 128 이상인 부분을 masking 처리한 결과이고,
 오른쪽에 있는 이미지는 Lab로 변환하여 a > 128 이상인 부분을 masking 처리한 결과이다.
