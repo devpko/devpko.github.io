@@ -13,19 +13,19 @@ comments: true
 
 ## Intro
 다양한 카메라를 사용해보면서 일반적으로 사용할 수 있는 interface가 있었으면 좋겠다 싶어서 간단하게 만들어 봤다.
-현재는 Basler 카메라, opencv에서 읽을 수 있는 일반적인 웹캠 및 카메라들만 지원하지만, 차차 앞으로 늘려가 볼 생각이다 :)
+현재는 Basler 카메라, opencv에서 읽을 수 있는 일반적인 웹캠 및 카메라들만 지원하지만, 앞으로 차차 늘려가 볼 생각이다 :)
 
 각 카메라에서 제공하는 api를 활용해서 제가 쓰기 편하게 만든 것일 뿐이라, 더 세세한 기능을 컨트롤하고 싶다면
-[camera-apis repo](https://github.com/devpko/camera-apis)에서 필요한 부분만 쓰셔도 되고, 카메라 api를 직접 사용하시는 것을 추천드립니다 :)
+[camera-apis repo]에서 필요한 부분만 쓰셔도 되고, 카메라 api를 직접 사용하시는 것을 추천드립니다 :)
 python 기반으로 만들었으며, opencv를 활용한 점 참고부탁드립니다!
 {:.note}
 
 
 ## Python Sample
-전체 코드는 [camera-apis repo](https://github.com/devpko/camera-apis)에 올려놨으며, 차차 업데이트해나갈 예정이다.
-git에 있는 파일들을 개인 프로젝트에 받아서 사용하시면 되며, 필요한 패키지는 requirements.txt에 있는 opencv-pyhton과 pypylon이다.
+전체 코드는 [camera-apis repo]에 올려놨으며, 꾸준히 업데이트해나갈 예정이다.
+그럼 아래 sample code를 통해 카메라로부터 어떻게 이미지를 읽는지 확인해보자. 
 
-pypylon은 basler 카메라를 사용할 때 필요한 패키지이니 참고
+필요한 패키지는 requirements.txt에 있고, pypylon은 basler 카메라를 사용할 때 필요한 패키지이니 참고부탁드립니다.
 {:.note}
 
 ~~~python
@@ -72,6 +72,7 @@ class Camera(metaclass=ABCMeta):
 # Please change below relative path of imported files. It may vary depending on your project.
 import sys
 from .camera import Camera, CAMERA_SETTINGS
+from .default import Default
 from .basler import Basler
 
 
@@ -108,4 +109,38 @@ if __name__ == '__main__':
     main()
 ~~~
 
-가장 먼저 
+## Details
+
+~~~python
+cam = Basler()
+~~~
+가장 먼저 어떤 카메라를 사용 할지 선택 후
+
+~~~python
+set_camera(camera=cam)
+~~~
+변경하고 싶은 카메라 셋팅이 있으면, set_camera method 내에 필요한 변경 사항들을 추가한다.
+
+~~~python
+if not cam.is_open():
+    sys.exit()
+~~~
+그리고 카메라가 정상적으로 open이 되었는지 체크해준다. 
+카메라의 물리적인 연결이 불안정하거나 다른 process에서 카메라 object를 잡고 있는 경우도 있으므로 체킹해주는 것이 좋다.
+
+~~~python
+image = cam.read()
+~~~
+카메라가 정상적으로 open이 되었다면 grabbing을 하고 있는 카메라로부터 이미지를 가져와 필요한 작업을 하면 된다.
+
+개인적인 생각으로 계속 grabbing을 하지 않고 필요할 때만 하는 것이 좋다고 생각하지만, 
+영상을 저장과 image processing을 병렬 처리하기 위해 [camera-apis repo]에 있는 것처럼 구현해 놓은 것이니 참고 부탁드립니다.
+{:.note}
+
+~~~python
+cam.release()
+~~~
+마지막으로 반드시 카메라 object를 release해주는 것이 중요!
+
+<!-- links -->
+[camera-apis repo]: https://github.com/devpko/camera-apis
