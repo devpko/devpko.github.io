@@ -17,6 +17,7 @@ image processing, computer vision
 
 
 ## Computer Vision
+* [\[Image Processing\] OpenCV Binarization, 이진화 활용 방법](../postings/_posts/computer-vision/2023-01-25-opencv-binarization.md){:.heading.flip-title} --- OpenCV에서 제공하는 이진화 활용 방법
 * [\[Image Processing\] Camera에서 이미지 읽기](../postings/_posts/computer-vision/2023-01-24-camera-apis.md){:.heading.flip-title} --- 다양한 종류의 카메라 API 통합 interface 구현
 * [\[Color Science\] Color의 이해 및 CIE Lab 활용 방법 (with python, opencv)](../postings/_posts/computer-vision/2023-01-14-color-science.md){:.heading.flip-title} --- 다양한 색 공간에 대한 이해 및 활용 방법
 {:.related-posts.faded}

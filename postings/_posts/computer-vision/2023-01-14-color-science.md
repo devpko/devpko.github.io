@@ -217,3 +217,13 @@ Lab 색 공간으로 변환하여 처리를 한다면 색 분리가 깔끔하게
 색을 분리해야하는 task라면 Lab로 변환하여 처리하는게 효율적일 것이다.
 
 이 글을 읽는 여러분도 Color Science에 대해 간략하게 이해하고 실무에서 다양하게 활용 할 수 있었으면 하는 바람이다 :)
+
+---
+#### *Reference*
+- https://ko.wikipedia.org/wiki/CIELAB_%EC%83%89_%EA%B3%B5%EA%B0%84
+- http://www.koreascience.or.kr/article/JAKO201724854344110.pdf
+- https://thiscolorhamoney.blogspot.com/2021/10/cie-lab.html
+- https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=faime&logNo=40022905040
+- https://www.hisour.com/ko/cie-1931-color-space-24840/
+- https://news.samsungdisplay.com/14129
+---

@@ -160,3 +160,9 @@ class Camera(metaclass=ABCMeta):
 
 <!-- links -->
 [camera-apis repo]: https://github.com/devpko/camera-apis
+
+
+---
+#### *Reference*
+- https://github.com/basler/pypylon
+---
