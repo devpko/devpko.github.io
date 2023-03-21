@@ -28,7 +28,7 @@ description:           >
   This is devpko's blog. Supports robot and vision tech-knowledge.
 
 # A shorter description for the sidebar.
-tagline:               \#computer vision, \#robot, \#automation
+tagline:               \#computer vision, \#robot, \#automation, \#ai
 
 # A list of keywords for your blog
 keywords:              [devpko, computer vision, robot, ai, image processing, automation]
