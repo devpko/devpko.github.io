@@ -22,15 +22,15 @@ comments: true
 Hugging Face는 다양한 Pretrained 모델을 제공하며, 이를 쉽게 사용할 수 있도록 Transformers라는 라이브러리를 제공한다. 
 우선 Hugging Face에서 제공하는 모델을 살펴보고, 필요한 모델을 찾아보자.
 
-1. Hugging Face 웹사이트 (https://huggingface.co/models) 에 접속
+**1.** Hugging Face 웹사이트 (https://huggingface.co/models) 에 접속
 
 ![otsu_algorithm](/assets/img/ai/ai-for-everyone/hugging_face_models.png)
 
-2. 원하는 모델을 검색. ex) GPT-2 모델을 사용하고자 한다면, 'gpt-2'라는 키워드를 검색.
+**2.** 원하는 모델을 검색. ex) GPT-2 모델을 사용하고자 한다면, 'gpt-2'라는 키워드를 검색.
 
 ![otsu_algorithm](/assets/img/ai/ai-for-everyone/hugging_face_gpt2.png)
 
-3. 검색 결과에서 필요한 모델을 선택하여 사용 방법을 확인한다.
+**3.** 검색 결과에서 필요한 모델을 선택하여 사용 방법을 확인한다.
 
 ![otsu_algorithm](/assets/img/ai/ai-for-everyone/hugging_face_gpt2_medium.png)
 

@@ -20,7 +20,7 @@ Computer Vision 분야에서 Binarization은 가장 기본적이면서도 제일
 
 
 ## Binarization Methods
-1. Global Thresholding  
+**1.** Global Thresholding  
 Global Thresholding은 이미지 전체에 대한 하나의 임계값을 사용하여 이미지를 이진화하는 것이다. 
 OpenCV에서는 cv2.threshold() 함수를 사용하여 Global Thresholding을 수행하며, 
 입력으로 이미지, 임계값, 흰색 픽셀 값, 이진화 유형 등의 parameter들을 사용한다.
@@ -31,7 +31,7 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 _, thresh = cv2.thresh(gray, 0, 255, cv2.THRESH_BINARY)
 ~~~
 
-2. Adaptive Thresholding  
+**2.** Adaptive Thresholding  
 Adaptive Thresholding은 이미지의 작은 영역에 대해 적응적으로 임계값을 계산하고, 각 영역을 이진화하는 것이다. 
 이 기술은 이미지의 광도가 일정하지 않을 때 효과적이다. 
 OpenCV에서는 cv2.adaptiveThreshold() 함수를 사용하여 Adaptive Thresholding을 수행하며,
@@ -47,7 +47,7 @@ thresh = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_
 thresh = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, block_size, C)
 ~~~
 
-3. Otsu's Binarization  
+**3.** Otsu's Binarization  
 Otsu's Binarization은 이미지의 임계값을 자동으로 결정하는 알고리즘이다. 
 Otsu's Binarization은 이미지의 히스토그램에서 bimodal distribution을 찾아내고, 이를 기반으로 최적의 임계값을 결정한다. 
 아래 그림에서 볼 수 있듯이 제일 하단의 histogram처럼 bimodal distribution 일수록 이진화가 선명해 지는 것을 볼 수 있다. 
@@ -61,7 +61,7 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 _, thresh = cv2.thresh(gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
 ~~~
 
-4. Triangle Binarization  
+**4.** Triangle Binarization  
 Triangle Binarization은 Otsu's Binarization과 유사한 방법으로 이미지의 임계값을 자동으로 결정한다. 
 이 알고리즘은 이미지의 히스토그램에서 최대 거리를 찾아내고, 이를 기반으로 최적의 임계값을 결정한다. 
 OpenCV에서는 cv2.threshold() 함수의 인수로 cv2.THRESH_TRIANGLE 값을 사용하여 Triangle Binarization을 수행한다.
