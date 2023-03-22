@@ -17,6 +17,7 @@ image processing, computer vision
 
 ## AI
 * [\[AI\] 누구나 쉽게, AI 모델 사용하는 방법](../postings/_posts/ai/2023-03-21-ai-for-everyone.md){:.heading.flip-title} --- with python and huggingface
+{:.related-posts.faded}
 
 ## Computer Vision
 * [\[Image Processing\] OpenCV Binarization, 이진화 활용 방법](../postings/_posts/computer-vision/2023-01-25-opencv-binarization.md){:.heading.flip-title} --- OpenCV에서 제공하는 이진화 활용 방법
